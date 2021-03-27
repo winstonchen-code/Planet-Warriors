@@ -1,20 +1,16 @@
 import React from 'react'
-import {Nav, NavLink, NavIcon, Bars, NavMenu} from './NavbarElements'
+import {Nav, NavLink, NavMenu} from './NavbarElements'
 
 function Navbar() {
     return (
         <>
       <Nav>
-        <NavLink to="/">
-          <img src="" alt=""/>
-        </NavLink>
-        <Bars />
         <NavMenu>
           <NavLink to="/" activeStyle>
             Home
           </NavLink>
           <NavLink to="/tasks" activeStyle>
-            tasks
+            Tasks
           </NavLink>
           <NavLink to="/profile" activeStyle>
             Profile

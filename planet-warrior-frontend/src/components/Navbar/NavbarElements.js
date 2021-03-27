@@ -1,13 +1,18 @@
 import styled from 'styled-components'
 import {NavLink as Link} from 'react-router-dom'
-import {FaGlobeAmericas} from 'react-icons/fa'
+import { FaGlobeAmericas } from 'react-icons/fa'
+import Landscape from '../../images/landscape2.png'
+
 
 export const Nav = styled.nav`
-    background: green;
-    height: 80px;
-    display: flex;
-    justify-content: center;
-    font-weight: 700;
+    background: url(${Landscape});
+    background: -position: center;
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    width: 100%; 
+    height: 35vh;
+    justify-content: flex-start; 
+    font-weight: 100;
 `
 
 export const NavLink = styled(Link)`
@@ -17,6 +22,8 @@ export const NavLink = styled(Link)`
     align-items: center;
     text-decoration: none;
     cursor: pointer;
+    padding: 0 1rem; 
+    top: 200px; 
 
     @media screen and (max-width: 400px) {
         position: absolute;
@@ -25,19 +32,6 @@ export const NavLink = styled(Link)`
     }
 `
 
-export const NavIcon = styled.div`
-    display: blocl;
-    position: absolute;
-    top: 0;
-    right: 0;
-    cursor: pointer;
-    color: #fff;
-
-    p {
-        transform: translate(-175%, 100%);
-        font-weight: bold; 
-    }
-`
 
 export const Bars = styled(FaGlobeAmericas)`
     font-size: 2rem;
@@ -47,7 +41,8 @@ export const Bars = styled(FaGlobeAmericas)`
 
 export const NavMenu = styled.div`
   display: flex;
-  align-items: center;
+  ${'' /* align-items: center; */}
+  justify-content: center;
   margin-right: -24px;
   
   @media screen and (max-width: 768px) {
