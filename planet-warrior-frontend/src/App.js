@@ -5,6 +5,7 @@ import Home from './components/Home/Home';
 import Tasks from './components/Tasks/Tasks';
 import Profile from './components/Profile/Profile';
 import NavBar from './components/Navbar/NavBar';
+import Login from './components/Login/Login';
 import { ChakraProvider } from '@chakra-ui/react'; 
 
 
@@ -19,6 +20,7 @@ function App() {
             <Route path="/" exact component={Home} />
             <Route exact path="/tasks" component={Tasks} />
             <Route exact path="/profile" component={Profile} />
+            <Route exact path="/login" component={Login} />
           </Switch>
 
       </ChakraProvider>

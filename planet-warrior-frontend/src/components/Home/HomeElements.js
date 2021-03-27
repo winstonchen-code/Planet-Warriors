@@ -5,4 +5,5 @@ export const HomeContainer = styled.div`
     height: 100vh;
     background-position: center;
     background-size: cover;
+    width: 100%; 
 `
