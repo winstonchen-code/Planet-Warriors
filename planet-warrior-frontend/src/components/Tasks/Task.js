@@ -78,21 +78,21 @@ const Btn = styled.div`
 
 `
 
-function Location(props) {
+function Location({task}) {
     return (
         <Card>
-            <Point> +{props.item.point} POINTS </Point>
+            <Point> +{task.point} POINTS </Point>
             <LocationImage>
-                <img src={props.item.image_url} alt={props.item.city}/>
+                <img src={task.image_url} alt={task.city}/>
             </LocationImage>
             <Type>Task</Type>
-            <Title>{props.item.name}</Title>
-            <TaskDetails>Max participants: {props.item.max_user}</TaskDetails>
+            <Title>{task.name}</Title>
+            <TaskDetails>Max participants: {task.max_user}</TaskDetails>
             
             {/* <Btn>
                 🖤
             </Btn> */}
-            <Date> Expiration Date: {props.item.deadline} </Date>
+            <Date> Expiration Date: {task.deadline} </Date>
 
         </Card>
     )
