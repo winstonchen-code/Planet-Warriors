@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import {Home, Header, Subheader, Grid} from './TasksElements'
+import {Home, Header, Subheader, Grid, MainGrid} from './TasksElements'
 import Task from './Task'
 
 const Tasks = () => {
@@ -22,9 +22,11 @@ const Tasks = () => {
             <h1>Hello Warriors</h1>
             <Subheader> Start tackling tasks here. </Subheader>
         </Header>
+        <MainGrid>
         <Grid>
             {grid}
         </Grid>
+        </MainGrid>
     </Home> 
   )
 }
