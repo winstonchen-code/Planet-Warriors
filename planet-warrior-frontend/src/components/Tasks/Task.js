@@ -114,7 +114,9 @@ function Location({task}) {
             <Type>Task</Type>
             <Title>{task.name}</Title>
             <TaskDetails>Max participants: {task.max_user}</TaskDetails>
-            
+            <Icons>
+            <Heart></Heart><Complete></Complete>
+            </Icons>
             {/* <Btn>
                 🖤
             </Btn> */}

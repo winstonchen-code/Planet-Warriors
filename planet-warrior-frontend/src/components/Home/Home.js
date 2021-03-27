@@ -4,7 +4,7 @@ import { Grid, GridItem, Box, Heading } from '@chakra-ui/react';
 
 
 const Home = () => {
-  // console.log(process.env.REACT_APP_GOOGLE_API_KEY)
+  console.log(process.env.REACT_APP_API_KEY)
   return (
     <>
       <HomeContainer>

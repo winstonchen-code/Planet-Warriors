@@ -11,9 +11,8 @@ const containerStyle = {
 };
 
 const onLoad = marker => {
-  console.log('marker: ', marker)
+  // console.log('marker: ', marker)
 }
-
 
 const Map = ({tasks}) => {
 
@@ -24,7 +23,7 @@ const Map = ({tasks}) => {
   return (
     <div>
   <LoadScript
-        googleMapsApiKey="AIzaSyD8cHhFQ8Kp2ng4GcNY73z5VlztJ5BqRNg"
+        googleMapsApiKey= "AIzaSyCC_3Zb3wMWerp5DeqNQ75oIduhkjJg5es"
       >
         {<GoogleMap
           mapContainerStyle={containerStyle}
