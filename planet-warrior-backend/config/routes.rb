@@ -5,10 +5,12 @@ Rails.application.routes.draw do
       post "/users", to: "users#create"
       get "/users", to: "users#index"
       post "/login", to: "auth#login"
+      get "/autologin", to: "users#autologin"
+      get "/captain", to: "users#captain"
       # post "/edit", to: "users#update"
-      get "/finduser", to: "users#find_user"
     end
   end
 
   get "/tasks", to: "tasks#index"
+  post "/newtask", to: "user_tasks#create"
 end
