@@ -1,20 +1,26 @@
 import React from 'react'
 import styled from 'styled-components'
 import { BrowserRouter as Router, Link } from 'react-router-dom'
+import {FaHeart} from "react-icons/fa";
+import {FaCheck} from "react-icons/fa";
+import { icons } from 'react-icons/lib';
+
 
 const Card = styled.div`
-    border: 1px solid #efefef;
+    border: 2px solid #efefef;
     background: #fff;
     border-radius: 3%;
+    border-top: 10px solid #229955;
 `
 const LocationImage = styled.div`
+    position: relative;
     text-align: left;
     padding-left: 20px;
     img{
         height: 80px;
         width: 80px;
         border-radius: 100%;
-        border: 5px solid #efefef;
+        border: 3px solid #229955;
     }
 `
 
@@ -26,7 +32,7 @@ const Type = styled.div`
 
 const Title = styled.div`
     font-size: 24px;
-    color: green;
+    color: #465E73;
     text-align: left;
     padding: 0 0 0 20px;
 `
@@ -45,7 +51,7 @@ const Point = styled.div`
 const Date = styled.div`
     margin: 0px 20px 0px 0px;
     text-align: right;
-    padding: 20px 0 10px 20px;
+    padding: 10px 0 10px 10px;
 `
 
 const LinkWrapper = styled.div`
@@ -64,19 +70,39 @@ const LinkWrapper = styled.div`
 `
 
 const Btn = styled.div`
-    display: inline-block;
+    text-align: center;
+    // position: center;
+    display: inline-flex;
     background: white;
-    color: white;
+    color: black;
     border: 1px solid grey;
     padding: 5px 5px;
     margin: 5px 5px 5px;
-    border-radius: 0px;
+    border-radius: 10%;
     cursor: pointer;
     text-decoration: none;
-    font-size: 15px;
-    font-family: inherit;
-
 `
+export const Heart = styled(FaHeart)`
+    font-size: 2rem;
+    border: 1px solid grey;
+    padding: 5px 5px;
+    margin: 10px 5px 0px 20px;
+    border-radius: 10%;
+`
+
+export const Complete = styled(FaCheck)`
+    // display: inline-block;
+    font-size: 2rem;
+    border: 1px solid grey;
+    padding: 5px 5px;
+    margin: 10px 5px 0px 20px;
+    border-radius: 10%;
+`
+const Icons = styled.div`
+    display: flex;
+    justify-content: left;
+`
+
 
 function Location({task}) {
     return (
