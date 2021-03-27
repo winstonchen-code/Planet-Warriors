@@ -1,5 +1,8 @@
 class Api::V1::UsersController < ApplicationController
-
+  def index
+    users = User.all
+    render json: users
+  end
 
   def login 
     user = User.find_by(email: user_login_params[:email])
