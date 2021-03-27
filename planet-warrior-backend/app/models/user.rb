@@ -11,4 +11,9 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   
 
+  def self.captain
+    hash = Hash.new(0)
+    UserTask.where(status: "complete").map {|ut| hash[ut.user] += ut.task.point}
+    hash.sort_by {|key,value| -value}[0]
+  end
 end
