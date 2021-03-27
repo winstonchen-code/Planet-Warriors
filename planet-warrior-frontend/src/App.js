@@ -5,20 +5,24 @@ import Home from './components/Home/Home';
 import Tasks from './components/Tasks/Tasks';
 import Profile from './components/Profile/Profile';
 import NavBar from './components/Navbar/NavBar';
+import { ChakraProvider } from '@chakra-ui/react'; 
 
 
 function App() {
   return (
     <Router>
+      <ChakraProvider>
+
       <GlobalStyle />
           <NavBar />
           <Switch>
             <Route path="/" exact component={Home} />
-            <Route exact path="/tasks" exact component={Tasks} />
-            <Route exact path="/profile" exact component={Profile} />
+            <Route exact path="/tasks" component={Tasks} />
+            <Route exact path="/profile" component={Profile} />
           </Switch>
 
-        </Router>
+      </ChakraProvider>
+    </Router>
   );
 }
 
