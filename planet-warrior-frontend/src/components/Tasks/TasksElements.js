@@ -17,7 +17,15 @@ export const Subheader = styled.div`
 `
 export const Grid = styled.div`
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+    width: 100%;
+`
+
+export const MainGrid = styled.div`
+    padding: 10px 10px 10px 40px;
+    display: grid;
+    grid-template-columns: 6fr 4fr;
     grid-gap: 20px;
     width: 100%;
 `
