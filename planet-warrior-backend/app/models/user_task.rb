@@ -4,4 +4,6 @@ class UserTask < ApplicationRecord
   belongs_to :task
 
 
+
+
 end

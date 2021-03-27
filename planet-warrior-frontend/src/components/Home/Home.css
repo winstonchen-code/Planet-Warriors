@@ -4,7 +4,34 @@ div.home-grid {
   display: flex;
 }
 
-/* div.welcome-bar {
+div.welcome-bar {
   margin-bottom: 5%;
+  padding-bottom: 1rem; 
 
-} */
+}
+
+div.home-header-1 {
+  margin-bottom: 5%;
+  text-align: center;
+
+}
+
+div.outer-content {
+  /* background-color: #98DAF2; */
+  background: linear-gradient(to top, rgb(160, 235, 241) 10%,rgb(154, 222, 241) 45%, rgb(99, 181, 233) 98%);
+  width: 100%; 
+  height: 810px;
+}
+
+img {
+  float: left;
+}
+
+div.inner-content-right {
+  width: 37%; 
+  float: right; 
+  justify-content: center;
+  text-align: left;
+  padding-top: 120px;
+  padding-right: 150px;
+}

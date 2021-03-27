@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2021_03_27_021223) do
   create_table "user_tasks", force: :cascade do |t|
     t.integer "user_id"
     t.integer "task_id"
-    t.string "status"
+    t.string "status", default: "incomplete"
   end
 
   create_table "users", force: :cascade do |t|
