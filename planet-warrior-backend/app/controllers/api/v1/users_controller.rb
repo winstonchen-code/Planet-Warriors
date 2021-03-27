@@ -1,10 +1,17 @@
 class Api::V1::UsersController < ApplicationController
+<<<<<<< HEAD
 
   def index
     users = User.all
     render json:users
   end
 
+=======
+  def index
+    users = User.all
+    render json: users
+  end
+>>>>>>> 41d9950731f8c0b29c297228cbbc154d03ec1b64
 
   def create 
     user = User.create(user_params)
