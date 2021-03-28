@@ -8,7 +8,7 @@ import SilverWarrior from '../../images/badges/silver-warrior.png';
 import RecycleBadge from '../../images/badges/recycle-badge.png';
 import TrashBadge from '../../images/badges/trash-badge.png';
 import TreeBadge from '../../images/badges/tree-badge.png';
-import Avatar from './avatar.png';
+import Avatar from './profile.jpg';
 
 const Profile = ({currentUser, setCurrentUser, captain}) => {
   const calcPoints = (taskType) => {
@@ -39,7 +39,8 @@ const Profile = ({currentUser, setCurrentUser, captain}) => {
       return "Gold Warrior"
     }
   }
-  
+
+  // console.log(currentUser)
   return (
     <Grid
       minH="100vh"
@@ -85,7 +86,7 @@ const Profile = ({currentUser, setCurrentUser, captain}) => {
           <Image
             borderRadius="full"
             boxSize="150px"
-            src={Avatar}
+            src= {Avatar}
             alt="User Avatar"
             fallbackSrc="https://via.placeholder.com/150"
           />

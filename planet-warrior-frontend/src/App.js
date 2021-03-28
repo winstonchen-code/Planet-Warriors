@@ -8,6 +8,7 @@ import Profile from './components/Profile/Profile';
 import NavBar from './components/Navbar/NavBar';
 import Footer from './components/Footer/Footer'
 import Login from './components/Login/Login';
+import Signup from './components/Login/Signup';
 import { ChakraProvider } from '@chakra-ui/react'; 
 import axios from 'axios';
 
@@ -58,6 +59,9 @@ console.log(captain)
               </Route> : null}
             <Route exact path='/login'>
               <Login setCurrentUser={setCurrentUser}/>
+            </Route>
+            <Route exact path='/signup'>
+              <Signup setCurrentUser={setCurrentUser}/>
             </Route>
           </Switch>
         <Footer />

@@ -7,7 +7,6 @@ const Signup = ({ setCurrentUser }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [name, setName] = useState("");
-    const [image, setImage] = useState("");
     const [error, setError] = useState(null);
 
     let history = useHistory();
@@ -23,7 +22,6 @@ const Signup = ({ setCurrentUser }) => {
                 email: email,
                 password: password,
                 name: name,
-                image: image
             })
         })
             .then(r => r.json())
@@ -47,7 +45,6 @@ const Signup = ({ setCurrentUser }) => {
                         <Input value={null} onChange={(e)=> setEmail(e.target.value)} type="text" placeholder="Username" />
                         <Input value={null} onChange={(e)=> setPassword(e.target.value)} type="password" placeholder="Password" />
                         <Input value={null} onChange={(e)=> setName(e.target.value)} type="text" placeholder="Name" />
-                        <Input value={null} onChange={(e)=> setImage(e.target.value)} type="text" placeholder="Image" />
                         {error
                         ? error.map(e => <Text fontSize="sm" color="red">{e}</Text>)
                         : null}
