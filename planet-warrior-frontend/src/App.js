@@ -2,9 +2,11 @@ import React, {useState, useEffect} from 'react';
 import {BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { GlobalStyle } from './globalStyles';
 import Home from './components/Home/Home';
+import About from './components/About/About';
 import Tasks from './components/Tasks/Tasks';
 import Profile from './components/Profile/Profile';
 import NavBar from './components/Navbar/NavBar';
+import Footer from './components/Footer/Footer'
 import Login from './components/Login/Login';
 import { ChakraProvider } from '@chakra-ui/react'; 
 
@@ -41,11 +43,14 @@ console.log(captain)
       <ChakraProvider>
 
       <GlobalStyle />
-          <NavBar />
+          <NavBar currentUser={currentUser} setCurrentUser={setCurrentUser} />
           <Switch>
             <Route path="/" exact component={Home} />
             <Route exact path='/tasks'>
               <Tasks captain={captain} currentUser={currentUser} setCurrentUser={setCurrentUser}/>
+            </Route>
+            <Route exact path='/about' component={About}>
+              <About/>
             </Route>
             {currentUser ? 
               <Route exact path='/profile'>
@@ -55,6 +60,7 @@ console.log(captain)
               <Login setCurrentUser={setCurrentUser}/>
             </Route>
           </Switch>
+        <Footer />
 
       </ChakraProvider>
     </Router>
