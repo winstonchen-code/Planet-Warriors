@@ -49,3 +49,6 @@ export const NavMenu = styled.div`
     display: none; 
   }
 `
+
+export const Btn = styled(Link)`
+`

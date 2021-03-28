@@ -1,8 +1,17 @@
 import React from 'react'
-import { Nav, NavLink, NavMenu } from './NavbarElements'
+import { Nav, NavLink, NavMenu, Btn } from './NavbarElements'
 import { Box, Button } from '@chakra-ui/react'; 
+import { useHistory } from "react-router-dom"
 
-function Navbar() {
+function Navbar({currentUser, setCurrentUser}) {
+  const history = useHistory()
+
+    function logout() {
+        localStorage.removeItem("token");
+        setCurrentUser(null);
+        history.push("/");
+  }
+
   return (
     <>
       <Nav>
@@ -12,18 +21,49 @@ function Navbar() {
       <Box bg="#229955" w="100%" p={2} color="white" textAlign="center">
      
           <NavMenu>
-            <NavLink to="/" activeStyle>
-              Home
-            </NavLink>
-            <NavLink to="/tasks" activeStyle>
-              Tasks
-            </NavLink>
-            <NavLink to="/profile" activeStyle>
-            Profile
-            </NavLink>
+            {currentUser ? (
+              <>
+              <NavLink to="/" activeStyle>
+                Home
+              </NavLink>
+              <NavLink to="/tasks" activeStyle>
+                Tasks
+              </NavLink>
+              <NavLink to="/profile" activeStyle>
+              Profile
+              </NavLink>
+              </>
+            ) : (
+              <>
+              <NavLink to="/" activeStyle>
+                Home
+              </NavLink>
+              <NavLink to="/about" activeStyle>
+                About
+              </NavLink>
+              <NavLink to="/tasks" activeStyle>
+                Tasks
+              </NavLink>
+              </>
+            )}
           <div className="log-in-btns">
-            <Button variant="solid" colorScheme="blue" size="md" mr="3" fontWeight="medium">Log In</Button>
-            <Button variant="solid" colorScheme="blue" size="md" mr="3" fontWeight="medium">Log Out</Button>
+          {currentUser ? (
+              <>
+              <Button onClick={logout} variant="solid" colorScheme="blue" size="md" mr="1" fontWeight="medium">
+                <Btn to="/profile" activeStyle>
+                Log Out
+                </Btn>
+              </Button>
+              </>
+            ) : (
+              <>
+              <Button variant="solid" colorScheme="blue" size="md" mr="3" fontWeight="medium">
+                <Btn to="/login" activeStyle>
+                Log In
+                </Btn>
+              </Button>
+              </>
+            )}
           </div>
           </NavMenu>
           </Box>
