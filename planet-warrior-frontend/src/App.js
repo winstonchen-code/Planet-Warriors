@@ -30,12 +30,11 @@ function App() {
     .then(response => {
       setCaptain(response)
     })
-  },[])
+  },[currentUser])
 
 
 
-  console.log(currentUser)
-  console.log(captain)
+console.log(captain)
 
   return (
     <Router>
@@ -45,10 +44,13 @@ function App() {
           <NavBar />
           <Switch>
             <Route path="/" exact component={Home} />
-            <Route exact path="/tasks" component={Tasks} />
-            {currentUser ? <Route exact path='/profile'>
-              <Profile currentUser={currentUser}/>
-            </Route> : null}
+            <Route exact path='/tasks'>
+              <Tasks captain={captain} currentUser={currentUser} setCurrentUser={setCurrentUser}/>
+            </Route>
+            {currentUser ? 
+              <Route exact path='/profile'>
+                <Profile currentUser={currentUser}/>
+              </Route> : null}
             <Route exact path='/login'>
               <Login setCurrentUser={setCurrentUser}/>
             </Route>

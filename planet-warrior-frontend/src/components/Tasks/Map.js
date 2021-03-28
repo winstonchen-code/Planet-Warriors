@@ -33,6 +33,15 @@ const Map = ({tasks}) => {
           {tasks.map(task =>  (
             <Marker 
             onClick={() => setSelectedTask(task)}
+            icon={
+              {
+              url: task.name === "plant tree" ? 
+                "./tree.svg"
+                : task.name === "pick up trash" ? 
+                "./trash.svg"
+                : "./bottle-1.svg",
+              scaledSize: new window.google.maps.Size(35,35)
+            }}
             onLoad={onLoad}
             position={{lat: task.latitude, lng: task.longitude}}
             >
