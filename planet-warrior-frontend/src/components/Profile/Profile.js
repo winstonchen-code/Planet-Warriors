@@ -1,15 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Grid, GridItem, Image, Text, Box, Progress, VStack, SimpleGrid } from "@chakra-ui/react";
 import TitleIcon from './title-icon.png';
-const USERS_URL = 'http://localhost:3000/api/v1/users'
 
-const Profile = () => {
-  const [currentUser, setCurrentUser] = useState("")
-  useEffect(() => {
-    fetch(USERS_URL)
-      .then(r => r.json())
-      .then(r => setCurrentUser(r[0]))
-  }, [])
+const Profile = ({currentUser}) => {
+
   return (
     <Grid
       minH="100vh"

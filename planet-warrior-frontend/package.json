@@ -13,10 +13,6 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.1",
-<<<<<<< HEAD
-    "chakra-paginator": "^0.6.3",
-=======
->>>>>>> c6156ae96cc17687e93c24f98a4efa6d037c6436
     "framer-motion": "^4.0.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

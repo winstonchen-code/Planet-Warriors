@@ -7,7 +7,6 @@ import './Home.css';
 
 
 const Home = () => {
-  console.log(process.env.REACT_APP_API_KEY)
   return (
     <>
       <HomeContainer>
