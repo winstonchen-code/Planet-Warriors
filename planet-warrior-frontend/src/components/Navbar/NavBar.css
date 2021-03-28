@@ -2,5 +2,6 @@ div.log-in-btns {
   display: flex;
   position: absolute;
   right: 10px; 
-  justify-content: center;
+  justify-content: right;
+  margin-bottom: 10px;
 }

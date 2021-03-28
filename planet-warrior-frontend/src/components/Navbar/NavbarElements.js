@@ -11,7 +11,7 @@ export const Nav = styled.nav`
     background-repeat: no-repeat; 
     background-size: cover; 
     width: 100%; 
-    height: 34vh;
+    height: 50vh;
     justify-content: flex-start; 
     font-weight: 50;
 `
@@ -41,6 +41,7 @@ export const Bars = styled(FaGlobeAmericas)`
 
 
 export const NavMenu = styled.div`
+  height: 6.5vh;
   display: flex;
   justify-content: center;
   float: bottom; 

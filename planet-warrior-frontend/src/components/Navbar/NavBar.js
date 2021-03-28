@@ -2,6 +2,7 @@ import React from 'react'
 import { Nav, NavLink, NavMenu, Btn } from './NavbarElements'
 import { Box, Button } from '@chakra-ui/react'; 
 import { useHistory } from "react-router-dom"
+import "./NavBar.css"
 
 function Navbar({currentUser, setCurrentUser}) {
   const history = useHistory()
@@ -57,6 +58,11 @@ function Navbar({currentUser, setCurrentUser}) {
               </>
             ) : (
               <>
+              <Button variant="solid" colorScheme="blue" size="md" mr="3" fontWeight="medium">
+                <Btn to="/signup" activeStyle>
+                Sign Up
+                </Btn>
+              </Button>
               <Button variant="solid" colorScheme="blue" size="md" mr="3" fontWeight="medium">
                 <Btn to="/login" activeStyle>
                 Log In

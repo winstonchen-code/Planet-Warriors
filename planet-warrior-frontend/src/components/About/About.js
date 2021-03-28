@@ -2,6 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import Jumbotron from'./Jumbotron'
 import JumbotronOne from'./JumbotronOne'
+import { Box, Wrap, WrapItem, Heading, Button, Text} from '@chakra-ui/react';
+import Landscape from '../../images/landscape-road.jpg'
+
 
 
 const Home = styled.div`
@@ -24,9 +27,11 @@ function About() {
 
     return (
         <Home>
-            
             <Jumbotron/>
-            <JumbotronOne/>
+            {/* <JumbotronOne/> */}
+            <div>
+              <img src={Landscape}/>
+            </div>
         </Home> 
     )
 }
