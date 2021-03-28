@@ -54,7 +54,7 @@ console.log(captain)
             </Route>
             {currentUser ? 
               <Route exact path='/profile'>
-                <Profile currentUser={currentUser}/>
+                <Profile captain={captain} currentUser={currentUser} setCurrentUser={setCurrentUser}/>
               </Route> : null}
             <Route exact path='/login'>
               <Login setCurrentUser={setCurrentUser}/>
