@@ -2,9 +2,9 @@ import React from 'react'
 import { HomeContainer } from './HomeElements'
 import { Box, Wrap, WrapItem, Heading, Button, Text} from '@chakra-ui/react';
 import EarthTasks from '../../images/earth-tasks-kids.png'
-import RecycleBadge from '../../images/recycle-badge.png'
-import TrashBadge from '../../images/trash-badge.png'
-import TreeBadge from '../../images/tree-badge.png'
+import RecycleBadge from '../../images/badges/recycle-badge.png'
+import TrashBadge from '../../images/badges/trash-badge.png'
+import TreeBadge from '../../images/badges/tree-badge.png'
 
 import './Home.css'; 
 
