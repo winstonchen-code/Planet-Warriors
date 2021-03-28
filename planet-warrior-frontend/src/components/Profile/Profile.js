@@ -107,7 +107,6 @@ const Profile = ({currentUser, setCurrentUser, captain}) => {
       >
         <VStack spacing={6}>
           <Image
-            borderRadius="full"
             boxSize="150px"
             src={titleAvatar()}
             alt="User Title"
@@ -143,7 +142,6 @@ const Profile = ({currentUser, setCurrentUser, captain}) => {
         <SimpleGrid mt={5} columns={[3, null, 5]} spacing="40px">
         {calcPoints("plastic") >= 100
         ? <Image
-            borderRadius="full"
             boxSize="150px"
             src={RecycleBadge}
             alt="Recycle Badge"
@@ -151,7 +149,6 @@ const Profile = ({currentUser, setCurrentUser, captain}) => {
         : null}
         {calcPoints("trash") >= 100
         ? <Image
-            borderRadius="full"
             boxSize="150px"
             src={TrashBadge}
             alt="Trash Badge"
@@ -159,7 +156,6 @@ const Profile = ({currentUser, setCurrentUser, captain}) => {
         : null}
         {calcPoints("tree") >= 100
         ? <Image
-            borderRadius="full"
             boxSize="150px"
             src={TreeBadge}
             alt="Tree Badge"
