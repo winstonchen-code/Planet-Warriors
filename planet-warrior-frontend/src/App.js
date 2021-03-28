@@ -6,6 +6,7 @@ import About from './components/About/About';
 import Tasks from './components/Tasks/Tasks';
 import Profile from './components/Profile/Profile';
 import NavBar from './components/Navbar/NavBar';
+import Footer from './components/Footer/Footer'
 import Login from './components/Login/Login';
 import { ChakraProvider } from '@chakra-ui/react'; 
 
@@ -59,6 +60,7 @@ console.log(captain)
               <Login setCurrentUser={setCurrentUser}/>
             </Route>
           </Switch>
+        <Footer />
 
       </ChakraProvider>
     </Router>
