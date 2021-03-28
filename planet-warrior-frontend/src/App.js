@@ -5,6 +5,7 @@ import Home from './components/Home/Home';
 import Tasks from './components/Tasks/Tasks';
 import Profile from './components/Profile/Profile';
 import NavBar from './components/Navbar/NavBar';
+import Footer from './components/Footer/Footer'
 import Login from './components/Login/Login';
 import { ChakraProvider } from '@chakra-ui/react'; 
 
@@ -41,7 +42,7 @@ console.log(captain)
       <ChakraProvider>
 
       <GlobalStyle />
-          <NavBar />
+        <NavBar />
           <Switch>
             <Route path="/" exact component={Home} />
             <Route exact path='/tasks'>
@@ -55,6 +56,7 @@ console.log(captain)
               <Login setCurrentUser={setCurrentUser}/>
             </Route>
           </Switch>
+        <Footer />
 
       </ChakraProvider>
     </Router>
