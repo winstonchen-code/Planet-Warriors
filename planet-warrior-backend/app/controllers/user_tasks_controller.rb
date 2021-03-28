@@ -6,7 +6,9 @@ class UserTasksController < ApplicationController
     end
 
     def update
-
+      user_task = UserTask.find_by(user_id: current_user.id, task_id: user_tasks_params[:task_id])
+      user_task.update(status: "complete")
+      render json: user_task
     end
 
     def destroy
