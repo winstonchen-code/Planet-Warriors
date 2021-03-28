@@ -30,7 +30,7 @@ const Profile = ({currentUser, setCurrentUser, captain}) => {
   }
   const title = () => {
     const userPoints = currentUser.complete_tasks.map(task => task.point).reduce((a, b) => a + b, 0)
-    if (currentUser === captain) {
+    if (currentUser.name === captain.captain) {
       return "Captain Planet"
     } else if (userPoints < 250) {
       return "Planeteer"
