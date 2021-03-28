@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Link } from 'react-router-dom'
 import {FaHeart} from "react-icons/fa";
 import {FaCheck} from "react-icons/fa";
 import { icons } from 'react-icons/lib';
+const TASKS_URL = 'http://localhost:3000/tasks/'
 
 
 const Card = styled.div`
@@ -105,6 +106,19 @@ const Icons = styled.div`
 
 
 function Location({task}) {
+    const completeTask = () => {
+        const reqPack = {
+            headers: {
+                "Content-Type": "application/json"
+            },
+            method: "PATCH",
+            body: JSON.stringify(task)
+        }
+        console.log(reqPack)
+        fetch(TASKS_URL + task.id, reqPack)
+            .then(r => r.json())
+            .then(console.log)
+    }
     return (
         <Card>
             <Point> +{task.point} POINTS </Point>
@@ -115,7 +129,7 @@ function Location({task}) {
             <Title>{task.name}</Title>
             <TaskDetails>Max participants: {task.max_user}</TaskDetails>
             <Icons>
-            <Heart></Heart><Complete></Complete>
+            <Heart></Heart><Complete onClick={completeTask}></Complete>
             </Icons>
             {/* <Btn>
                 🖤

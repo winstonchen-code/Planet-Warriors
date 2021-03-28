@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Grid, GridItem, Image, Text, Box, Progress, VStack, SimpleGrid } from "@chakra-ui/react";
+import { Grid, GridItem, Image, Text, Box, Progress, VStack, SimpleGrid, HStack } from "@chakra-ui/react";
 import TitleIcon from './title-icon.png';
+import Location from '../Tasks/Task'
 
 const Profile = ({currentUser}) => {
-
+  
   return (
     <Grid
       minH="100vh"
@@ -24,7 +25,15 @@ const Profile = ({currentUser}) => {
         overflow="hidden"
       >
         TASKS IN PROGRESS
-        <Box p="223"> PENDING TASKS IN HERE</Box>
+        
+          <HStack mt={10} spacing={6}>
+            {currentUser.pending_tasks.map(task => <Location task={task}/>)}
+          </HStack>
+        <Text mt={10}>RECENTLY COMPLETED</Text>
+          <HStack mt={10} spacing={6}>
+            {currentUser.complete_tasks.slice(-3).map(task => <Location task={task}/>)}
+          </HStack>
+        
       </GridItem>
 
       <GridItem
@@ -37,13 +46,15 @@ const Profile = ({currentUser}) => {
         shadow="md"
         p={6}
       >
-        <Image
-          borderRadius="full"
-          boxSize="150px"
-          src={TitleIcon}
-          alt="User Title"
-        />
-        <Text fontSize="xl" pt={4}>{currentUser.title}</Text>
+        <VStack spacing={6}>
+          <Image
+            borderRadius="full"
+            boxSize="150px"
+            src={TitleIcon}
+            alt="User Title"
+          />
+          <Text fontSize="xl" >{currentUser.title}</Text>
+        </VStack>
       </GridItem>
 
       <GridItem textAlign="center" rowSpan={1} colSpan={7} borderWidth="1px" borderRadius="lg" overflow="hidden" p={5} shadow="md">
