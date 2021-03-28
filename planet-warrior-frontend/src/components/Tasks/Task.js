@@ -155,7 +155,7 @@ function Location({task, setCurrentUser, currentUser, captain}) {
             //     setTimeout(() => setOpen(true) , 3000)
             // }
 
-            setCurrentUser({...currentUser, pending_tasks: currentUser.pending_tasks.filter(t => t !== task.id),
+            setCurrentUser({...currentUser, pending_tasks: currentUser.pending_tasks.filter(t => t.id !== task.id),
                                             complete_tasks: [...currentUser.complete_tasks, task]})
 
             

@@ -14,7 +14,7 @@ const onLoad = marker => {
   // console.log('marker: ', marker)
 }
 
-const Map = ({tasks}) => {
+const Map = ({tasks, currentUser, setCurrentUser}) => {
 
   const [selectedTask,setSelectedTask] = useState(null)
 
@@ -53,7 +53,7 @@ const Map = ({tasks}) => {
             position={{lat: selectedTask.latitude, lng: selectedTask.longitude}}
             onCloseClick={() => setSelectedTask(null)}
             >
-            <div><Task task={selectedTask}/></div>
+            <div><Task task={selectedTask} currentUser={currentUser} setCurrentUser={setCurrentUser}/></div>
               </InfoWindow>
           )}
 

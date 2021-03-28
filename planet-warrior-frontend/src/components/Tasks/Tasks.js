@@ -44,7 +44,7 @@ const Tasks = ({currentUser, setCurrentUser, captain}) => {
               <Pagination onChange={handleChange} count={Math.ceil(tasks.length/6)} color="primary" />
             </Grid>
             <GridMap>
-                <Map tasks={filterTasks().slice((page - 1)*6, page*6)}/>
+                <Map currentUser={currentUser} setCurrentUser={setCurrentUser}tasks={filterTasks().slice((page - 1)*6, page*6)}/>
             </GridMap>
         </MainGrid>
     </Home> 
