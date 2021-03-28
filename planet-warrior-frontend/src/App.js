@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { GlobalStyle } from './globalStyles';
 import Home from './components/Home/Home';
@@ -10,6 +10,33 @@ import { ChakraProvider } from '@chakra-ui/react';
 
 
 function App() {
+
+  const [currentUser, setCurrentUser] = useState(null)
+  const [captain, setCaptain] = useState({})
+
+  useEffect(() => {
+    fetch("https://planetwarriors.herokuapp.com/api/v1/autologin", {
+    headers: {"Authorization": `Bearer ${localStorage.token}`}})
+    .then(res => res.json())
+    .then(response => {
+      if (response.id) setCurrentUser(response)
+    })
+  },[])
+
+    useEffect(() => {
+    fetch("https://planetwarriors.herokuapp.com/api/v1/captain", {
+    headers: {"Authorization": `Bearer ${localStorage.token}`}})
+    .then(res => res.json())
+    .then(response => {
+      setCaptain(response)
+    })
+  },[])
+
+
+
+  console.log(currentUser)
+  console.log(captain)
+
   return (
     <Router>
       <ChakraProvider>
@@ -19,8 +46,12 @@ function App() {
           <Switch>
             <Route path="/" exact component={Home} />
             <Route exact path="/tasks" component={Tasks} />
-            <Route exact path="/profile" component={Profile} />
-            <Route exact path="/login" component={Login} />
+            {currentUser ? <Route exact path='/profile'>
+              <Profile currentUser={currentUser}/>
+            </Route> : null}
+            <Route exact path='/login'>
+              <Login setCurrentUser={setCurrentUser}/>
+            </Route>
           </Switch>
 
       </ChakraProvider>
