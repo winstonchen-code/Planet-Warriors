@@ -80,7 +80,7 @@ const Profile = ({currentUser, setCurrentUser, captain}) => {
         borderRadius="lg"
         overflow="hidden"
         shadow="md"
-        p={10}
+        p={14}
       >
         <VStack spacing={6}>
           <Image
@@ -90,8 +90,8 @@ const Profile = ({currentUser, setCurrentUser, captain}) => {
             alt="User Avatar"
             fallbackSrc="https://via.placeholder.com/150"
           />
-          <Text fontSize="xl" >{currentUser.name}</Text>
-          <Text fontSize="m" >Bio: Environmentalist with a green thumb. I love gardening and planting trees!</Text>
+          <Text fontSize="2xl" >{currentUser.name}</Text>
+          <Text fontSize="lg" >Planet Warrior in training.</Text>
           
         </VStack>
       </GridItem>
