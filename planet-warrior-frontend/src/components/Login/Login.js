@@ -1,35 +1,38 @@
 import React, {useState} from 'react';
+import { useHistory } from "react-router-dom";
 import { Center, Box, Input, VStack, Button, Text } from "@chakra-ui/react";
 
 
 const Login = ({ setCurrentUser }) => {
-    // const [username, setUsername] = useState("");
-    // const [password, setPassword] = useState("");
-    // const [error, setError] = useState(null)
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [error, setError] = useState(null);
 
-    // const handleSubmit = (e) => {
-    //     e.preventDefault()
-    //     fetch(“https://planetwarriors.herokuapp.com/api/v1/login”, { 
-    //         method: "POST",
-    //         headers: {
-    //             "Content-Type": "application/json"
-    //         },
-    //         body: JSON.stringify({
-    //             username: username,
-    //             password: password
-    //         })
-    //     })
-    //         .then(r => r.json())
-    //         .then(data => {
-    //             if (data.error_message) {
-    //                 setError(data.error_message)
-    //             } else {
-    //                 const userData = JSON.parse(data.user_data)
-    //                 localStorage.setItem("token", data.token)
-    //                 setCurrentUser(userData)
-    //             }
-    //         })
-    // }
+    let history = useHistory();
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        fetch("https://planetwarriors.herokuapp.com/api/v1/login", { 
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                email: email,
+                password: password
+            })
+        })
+            .then(r => r.json())
+            .then(data => {
+                if (data.message) {
+                    setError(data.message)
+                } else {
+                    localStorage.setItem("token", data.token)
+                    setCurrentUser(data.user)
+                    history.push('./profile')
+                }
+            })
+    }
 
     return (
         <Center minHeight="60vh" >
@@ -37,17 +40,18 @@ const Login = ({ setCurrentUser }) => {
                 
                 <form onSubmit={null}>
                     <VStack spacing="24px">
-                        <Input value={null} onChange={null} type="text" placeholder="Username" />
-                        <Input value={null} onChange={null} type="password" placeholder="Password" />
-                        {/* {error
+                        <Input value={null} onChange={(e)=> setEmail(e.target.value)} type="text" placeholder="Username" />
+                        <Input value={null} onChange={(e)=> setPassword(e.target.value)} type="password" placeholder="Password" />
+                        {error
                         ? <Text fontSize="sm" color="red">{error}</Text>
-                        : null} */}
+                        : null}
                         <Button
                             mt={4}
                             backgroundColor="green"
                             align="left"
                             type="submit"
                             color="white"
+                            onClick={handleSubmit}
                         >
                             Log In
                         </Button>
