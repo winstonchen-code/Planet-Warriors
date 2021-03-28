@@ -122,19 +122,19 @@ const Profile = ({currentUser, setCurrentUser, captain}) => {
         <Text>ACCOMPLISHMENTS</Text>
         <VStack mt={5} align="left" spacing={10}>
           <Box>
-            <Text align="left" spacing={10}>Plastic</Text>
+            <Text align="left" spacing={10}>Plastic {calcPoints("plastic") > 100 ? "- You collected enough plastic to fill up a mini van!" : null}</Text>
             <Progress hasStripe mt={4} value={calcPoints("plastic")} colorScheme="green" />
-            <Text align="left">{100 - calcPoints("plastic")} points to go until your next accomplishment!</Text>
+            <Text align="left">{calcPoints("plastic") > 100 ? "You earned the recycling badge!" :  `${100 - calcPoints("plastic")} points to go until your next accomplishment!` }</Text>
           </Box>
           <Box>
-            <Text align="left" spacing={10}>Trash</Text>
+            <Text align="left" spacing={10}>Trash {calcPoints("trash") > 100 ? "- You picked up enough trash to fill a swimming pool!" : null}</Text>
             <Progress hasStripe mt={4} value={calcPoints("trash")} colorScheme="green" />
-            <Text align="left">{100 - calcPoints("trash")} points to go until your next accomplishment!</Text>
+            <Text align="left">{calcPoints("trash") > 100 ? "You earned the trash collector badge!" :  `${100 - calcPoints("trash")} points to go until your next accomplishment!` }</Text>
           </Box>
           <Box>
-            <Text align="left" spacing={10}>Trees - You've planted enough trees to cover 4 small backyards!</Text>
+            <Text align="left" spacing={10}>Trees {calcPoints("tree") > 100 ? "- You've planted enough trees to cover 4 small backyards!" : null}</Text>
             <Progress hasStripe mt={4} value={calcPoints("tree")} colorScheme="green" />
-            <Text align="left">{100 - calcPoints("tree")} points to go until your next accomplishment!</Text>
+            <Text align="left">{calcPoints("tree") > 100 ? "You earned the tree badge" :  `${100 - calcPoints("tree")} points to go until your next accomplishment!` }</Text>
           </Box>
         </VStack>
       </GridItem>

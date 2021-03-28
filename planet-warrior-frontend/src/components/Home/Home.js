@@ -28,12 +28,12 @@ const Home = () => {
               <Text fontSize="xl" color="#1862A9" mt="30px">Earn points and get rewarded with badges</Text>
         
               <br />
-              <Button size="md" fontWeight="medium" colorScheme="green" mt="30px">View My Tasks</Button>
+              <Button size="md" fontWeight="medium" colorScheme="green" mt="30px">Sign up</Button>
             </div>
           </div>
 
     
-          <center>
+          <center><br /><br /><br />
             <div className="badge-header">
             <Heading color="#158167" size="lg">Earn your next badge as you accomplish tasks!</Heading>
             <Heading color="#1862A9" size="md">Flip each one to see how you can earn.</Heading>
