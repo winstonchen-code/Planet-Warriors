@@ -7,6 +7,7 @@ import Profile from './components/Profile/Profile';
 import NavBar from './components/Navbar/NavBar';
 import Login from './components/Login/Login';
 import { ChakraProvider } from '@chakra-ui/react'; 
+import axios from 'axios';
 
 
 function App() {
@@ -31,7 +32,6 @@ function App() {
       setCaptain(response)
     })
   },[currentUser])
-
 
 
 console.log(captain)

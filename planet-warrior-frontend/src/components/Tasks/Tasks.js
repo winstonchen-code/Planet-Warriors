@@ -37,12 +37,8 @@ const Tasks = ({currentUser, setCurrentUser, captain}) => {
             filterTasks = filterTasks.filter(t => (new Date(t.deadline) - new Date()) / (1000*60*60*24) >= filterDeadline)
         }
 
-
-
         return filterTasks
     } 
-
-    console.log(filterTasks())
 
     const grid = filterTasks().slice((page - 1)*6, page*6).map( task => {
         return (<Task key={task.id} task={task} captain={captain} currentUser={currentUser} setCurrentUser={setCurrentUser}> </Task>)
@@ -51,9 +47,6 @@ const Tasks = ({currentUser, setCurrentUser, captain}) => {
     const handleChange = (event, value) => {
      setPage(value);
   };
-
-
-  console.log(currentUser)
 
   return (
     <Home>

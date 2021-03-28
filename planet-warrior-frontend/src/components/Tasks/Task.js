@@ -58,7 +58,7 @@ function Location({task, setCurrentUser, currentUser, captain}) {
                 : <img src="./bottle-1.svg" alt=""/>
             }
             </LocationImage>
-            <Type>Task</Type>
+            <Type>Task id: {task.id}</Type>
             <Title>{task.name}</Title>
             <TaskDetails>Max participants: {task.max_user}</TaskDetails>
             
