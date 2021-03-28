@@ -1,37 +1,33 @@
 div.home-grid {
   margin-top: 1rem;
-  padding-top: 100px;
+  /* padding-top: 100px; */
   display: flex;
 }
 
-div.welcome-bar {
-  margin-bottom: 5%;
-  padding-bottom: 1rem; 
-
-}
 
 div.home-header-1 {
-  margin-bottom: 5%;
+  margin-bottom: 2%;
   text-align: center;
 
 }
 
 div.outer-content {
-  /* background-color: #98DAF2; */
-  background: linear-gradient(to top, rgb(160, 235, 241) 10%,rgb(154, 222, 241) 45%, rgb(99, 181, 233) 98%);
+  background: linear-gradient(to top, rgb(173, 243, 248) 5%,rgb(154, 222, 241) 40%, rgb(80, 173, 231) 98%);
   width: 100%; 
-  height: 810px;
+  height: 580px;
+  padding-top: 40px;
 }
 
 img {
   float: left;
 }
 
+
 div.inner-content-right {
-  width: 37%; 
+  width: 40%; 
   float: right; 
   justify-content: center;
   text-align: left;
-  padding-top: 120px;
-  padding-right: 150px;
+  padding-top: 65px;
+  padding-right: 180px;
 }
