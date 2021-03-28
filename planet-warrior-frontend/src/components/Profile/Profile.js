@@ -11,9 +11,6 @@ import TreeBadge from '../../images/tree-badge.png';
 import Avatar from './avatar.png';
 
 const Profile = ({currentUser, setCurrentUser, captain}) => {
-  const calcLength = (taskType) => {
-    return currentUser.complete_tasks.map(task => task.name.includes(taskType) ? task : null).length
-  }
   const calcPoints = (taskType) => {
     return currentUser.complete_tasks.map(task => task.name.includes(taskType) ? task.point : null).reduce((a, b) => a + b, 0)
   }
@@ -125,17 +122,17 @@ const Profile = ({currentUser, setCurrentUser, captain}) => {
         <Text>ACCOMPLISHMENTS</Text>
         <VStack mt={5} align="left" spacing={10}>
           <Box>
-            <Text align="left" spacing={10}>Plastic - You've picked up enough plastic to span the state of Texas!</Text>
+            <Text align="left" spacing={10}>Plastic</Text>
             <Progress hasStripe mt={4} value={calcPoints("plastic")} colorScheme="green" />
             <Text align="left">{100 - calcPoints("plastic")} points to go until your next accomplishment!</Text>
           </Box>
           <Box>
-            <Text align="left" spacing={10}>Trash - You've picked up enough trash to span the Pacific Crest Trail!</Text>
+            <Text align="left" spacing={10}>Trash</Text>
             <Progress hasStripe mt={4} value={calcPoints("trash")} colorScheme="green" />
             <Text align="left">{100 - calcPoints("trash")} points to go until your next accomplishment!</Text>
           </Box>
           <Box>
-            <Text align="left" spacing={10}>Trees - You've planted enough trees to cover a small backyard!</Text>
+            <Text align="left" spacing={10}>Trees - You've planted enough trees to cover 4 small backyards!</Text>
             <Progress hasStripe mt={4} value={calcPoints("tree")} colorScheme="green" />
             <Text align="left">{100 - calcPoints("tree")} points to go until your next accomplishment!</Text>
           </Box>
@@ -144,7 +141,7 @@ const Profile = ({currentUser, setCurrentUser, captain}) => {
       <GridItem textAlign="center" rowSpan={1} colSpan={7} borderWidth="1px" borderRadius="lg" overflow="hidden" p={5} shadow="md">
         BADGES
         <SimpleGrid mt={5} columns={[3, null, 5]} spacing="40px">
-        {calcLength("plastic") > 1 
+        {calcPoints("plastic") >= 100
         ? <Image
             borderRadius="full"
             boxSize="150px"
@@ -152,7 +149,7 @@ const Profile = ({currentUser, setCurrentUser, captain}) => {
             alt="Recycle Badge"
           />
         : null}
-        {calcLength("trash") > 1 
+        {calcPoints("trash") >= 100
         ? <Image
             borderRadius="full"
             boxSize="150px"
@@ -160,7 +157,7 @@ const Profile = ({currentUser, setCurrentUser, captain}) => {
             alt="Trash Badge"
           />
         : null}
-        {calcLength("tree") > 1 
+        {calcPoints("tree") >= 100
         ? <Image
             borderRadius="full"
             boxSize="150px"
