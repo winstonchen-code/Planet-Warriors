@@ -2,28 +2,28 @@ import styled from 'styled-components'
 import {NavLink as Link} from 'react-router-dom'
 import { FaGlobeAmericas } from 'react-icons/fa'
 import Landscape2 from '../../images/nature_landscape.jpg'
-import LandscapeRoad from '../../images/landscape-road.jpg'
+import PlanetWarriorBanner from '../../images/planetwarrior-banner.png'
 
 
 export const Nav = styled.nav`
-    background: url(${Landscape2});
+    background: url(${PlanetWarriorBanner});
     background: -position: center;
     background-repeat: no-repeat; 
     background-size: cover; 
     width: 100%; 
-    height: 30vh;
+    height: 34vh;
     justify-content: flex-start; 
-    font-weight: 100;
+    font-weight: 50;
 `
 
 export const NavLink = styled(Link)`
     color: #fff;
-    font-size: 2rem;
+    font-size: 16pt;
     display: flex;
     align-items: center;
     text-decoration: none;
     cursor: pointer;
-    padding: 0 1rem; 
+    padding: 0 2rem; 
 
     @media screen and (max-width: 400px) {
         position: absolute;
@@ -31,6 +31,7 @@ export const NavLink = styled(Link)`
         left: 25px;
     }
 `
+
 
 
 export const Bars = styled(FaGlobeAmericas)`
@@ -42,6 +43,7 @@ export const Bars = styled(FaGlobeAmericas)`
 export const NavMenu = styled.div`
   display: flex;
   justify-content: center;
+  float: bottom; 
 
   @media screen and (max-width: 768px) {
     display: none; 

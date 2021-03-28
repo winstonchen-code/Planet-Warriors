@@ -1,0 +1,6 @@
+div.log-in-btns {
+  display: flex;
+  position: absolute;
+  right: 10px; 
+  justify-content: center;
+}

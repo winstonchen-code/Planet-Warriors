@@ -1,10 +1,13 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled from 'styled-components'
 import { BrowserRouter as Router, Link } from 'react-router-dom'
 import {FaHeart} from "react-icons/fa";
 import {FaCheck} from "react-icons/fa";
+import {FaPlus} from "react-icons/fa";
+import {FaHourglassStart} from "react-icons/fa";
 import { icons } from 'react-icons/lib';
-const TASKS_URL = 'http://localhost:3000/tasks/'
+import 'react-responsive-modal/styles.css';
+import { Modal } from 'react-responsive-modal';
 
 
 const Card = styled.div`
@@ -99,38 +102,103 @@ export const Complete = styled(FaCheck)`
     margin: 10px 5px 0px 20px;
     border-radius: 10%;
 `
+export const Plus = styled(FaPlus)`
+    // display: inline-block;
+    font-size: 2rem;
+    border: 1px solid grey;
+    padding: 5px 5px;
+    margin: 10px 5px 0px 20px;
+    border-radius: 10%;
+`
+export const HourglassStart = styled(FaHourglassStart)`
+    // display: inline-block;
+    font-size: 2rem;
+    border: 1px solid grey;
+    padding: 5px 5px;
+    margin: 10px 5px 0px 20px;
+    border-radius: 10%;
+`
 const Icons = styled.div`
     display: flex;
     justify-content: left;
 `
 
 
-function Location({task}) {
-    const completeTask = () => {
-        const reqPack = {
-            headers: {
-                "Content-Type": "application/json"
-            },
-            method: "PATCH",
-            body: JSON.stringify(task)
-        }
-        console.log(reqPack)
-        fetch(TASKS_URL + task.id, reqPack)
-            .then(r => r.json())
-            .then(console.log)
+
+function Location({task, setCurrentUser, currentUser, captain}) {
+
+     const [open, setOpen] = useState(false);
+
+    const handleAddTask = () => {
+            fetch(`https://planetwarriors.herokuapp.com/newtask`, {
+            method: "POST",
+            headers: {"Content-Type": "application/json",
+                    "Authorization": `Bearer ${localStorage.token}`},
+            body: JSON.stringify({task_id: task.id})})
+            .then(res => res.json())
+            .then(() => {
+            setCurrentUser({...currentUser, pending_tasks: [...currentUser.pending_tasks, task]})
+            })
     }
+
+    const handleCheckTask = () => {
+            fetch(`https://planetwarriors.herokuapp.com/checktask`, {
+            method: "POST",
+            headers: {"Content-Type": "application/json",
+                    "Authorization": `Bearer ${localStorage.token}`},
+            body: JSON.stringify({task_id: task.id})})
+            .then(res => res.json())
+            .then(() => {
+            // let user_points = currentUser.complete_tasks.reduce((a,b) => a + b, 0)
+            // let former_captain = captain
+            // if (user_points + task.point > former_captain.point) {
+            //     setTimeout(() => setOpen(true) , 3000)
+            // }
+
+            setCurrentUser({...currentUser, pending_tasks: currentUser.pending_tasks.filter(t => t.id !== task.id),
+                                            complete_tasks: [...currentUser.complete_tasks, task]})
+
+            
+            }
+        )}
+
+
     return (
         <Card>
             <Point> +{task.point} POINTS </Point>
             <LocationImage>
-                <img src={task.image_url} alt={task.city}/>
+                {task.name === "plant tree" ? 
+                <img src="./tree.svg" alt=""/>
+                : task.name === "pick up trash" ? 
+                <img src="./trash.svg" alt=""/>
+                : <img src="./bottle-1.svg" alt=""/>
+            }
             </LocationImage>
             <Type>Task</Type>
             <Title>{task.name}</Title>
             <TaskDetails>Max participants: {task.max_user}</TaskDetails>
-            <Icons>
-            <Heart></Heart><Complete onClick={completeTask}></Complete>
-            </Icons>
+            
+                {/* <div onClick={handleAddTask}><Heart></Heart></div> */}
+                {
+                currentUser && currentUser.complete_tasks.find(t=> t.id === task.id) ? 
+                <div style={{color: 'red'}}><Complete></Complete></div>
+                : currentUser && currentUser.pending_tasks.find(t=> t.id === task.id) ? 
+                <Icons> 
+                    <div ><HourglassStart></HourglassStart></div>
+                    <div onClick={handleCheckTask}><Complete></Complete></div>
+                 </Icons>
+                 : currentUser ?
+                <Icons> 
+                    <div onClick={handleAddTask}><Plus></Plus></div>
+                 </Icons>
+                 : 
+               null
+                }
+            
+              <Modal open={open} onClose={()=> setOpen(false)} center>
+                 <h2>Simple centered modal</h2>
+             </Modal>
+
             {/* <Btn>
                 🖤
             </Btn> */}
