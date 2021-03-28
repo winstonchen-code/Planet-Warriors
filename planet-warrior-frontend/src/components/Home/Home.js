@@ -35,17 +35,13 @@ const Home = () => {
        
           </div>
 
-          <Wrap>
-            <WrapItem>
+    
               <Box width="50%"><img src={RecycleBadge}/></Box>
-            </WrapItem>
-            <WrapItem>
+          
               <Box width="50%"><img src={TreeBadge}/></Box>
-            </WrapItem>
-            <WrapItem>
+            
               <Box width="50%"><img src={TrashBadge}/></Box>
-            </WrapItem>
-          </Wrap>
+      
 
           
     
