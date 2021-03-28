@@ -1,13 +1,13 @@
 import React from 'react';
 import { Grid, GridItem, Image, Text, Box, Progress, VStack, SimpleGrid, HStack } from "@chakra-ui/react";
 import Location from '../Tasks/Task';
-import CaptainPlanet from '../../images/captain-planet.png';
-import GoldWarrior from '../../images/gold-warrior.png';
-import Planeteer from '../../images/planeteer-badge.png';
-import SilverWarrior from '../../images/silver-warrior.png';
-import RecycleBadge from '../../images/recycle-badge.png';
-import TrashBadge from '../../images/trash-badge.png';
-import TreeBadge from '../../images/tree-badge.png';
+import CaptainPlanet from '../../images/badges/captain-planet.png';
+import GoldWarrior from '../../images/badges/gold-warrior.png';
+import Planeteer from '../../images/badges/planeteer-badge.png';
+import SilverWarrior from '../../images/badges/silver-warrior.png';
+import RecycleBadge from '../../images/badges/recycle-badge.png';
+import TrashBadge from '../../images/badges/trash-badge.png';
+import TreeBadge from '../../images/badges/tree-badge.png';
 import Avatar from './avatar.png';
 
 const Profile = ({currentUser, setCurrentUser, captain}) => {
