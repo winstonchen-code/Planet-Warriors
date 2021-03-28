@@ -11,13 +11,14 @@ import TreeBadge from '../../images/badges/tree-badge.png';
 import Avatar from './profile.jpg';
 
 const Profile = ({currentUser, setCurrentUser, captain}) => {
+  console.log(captain.captain)
   const calcPoints = (taskType) => {
     return currentUser.complete_tasks.map(task => task.name.includes(taskType) ? task.point : null).reduce((a, b) => a + b, 0)
   }
   const titleBadges = {planeteer: Planeteer, silverWarrior: SilverWarrior, goldWarrior: GoldWarrior, captainPlanet: CaptainPlanet}
   const titleAvatar = () => {
     const userPoints = currentUser.complete_tasks.map(task => task.point).reduce((a, b) => a + b, 0)
-    if (currentUser === captain) {
+    if (currentUser.name === captain.captain) {
       return titleBadges.captainPlanet
     } else if (userPoints < 250) {
       return titleBadges.planeteer
