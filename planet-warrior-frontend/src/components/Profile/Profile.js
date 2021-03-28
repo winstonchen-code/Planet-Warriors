@@ -8,6 +8,7 @@ import SilverWarrior from '../../images/silver-warrior.png';
 import RecycleBadge from '../../images/recycle-badge.png';
 import TrashBadge from '../../images/trash-badge.png';
 import TreeBadge from '../../images/tree-badge.png';
+import Avatar from './avatar.png';
 
 const Profile = ({currentUser, setCurrentUser, captain}) => {
   const calcLength = (taskType) => {
@@ -81,17 +82,18 @@ const Profile = ({currentUser, setCurrentUser, captain}) => {
         borderRadius="lg"
         overflow="hidden"
         shadow="md"
-        p={14}
+        p={10}
       >
         <VStack spacing={6}>
           <Image
             borderRadius="full"
             boxSize="150px"
-            src={currentUser.image}
-            alt="User Title"
+            src={Avatar}
+            alt="User Avatar"
             fallbackSrc="https://via.placeholder.com/150"
           />
           <Text fontSize="xl" >{currentUser.name}</Text>
+          <Text fontSize="m" >Bio: Environmentalist with a green thumb. I love gardening and planting trees!</Text>
           
         </VStack>
       </GridItem>
