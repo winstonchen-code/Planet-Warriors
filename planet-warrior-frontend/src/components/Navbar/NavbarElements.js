@@ -11,19 +11,19 @@ export const Nav = styled.nav`
     background-repeat: no-repeat; 
     background-size: cover; 
     width: 100%; 
-    height: 27vh;
+    height: 34vh;
     justify-content: flex-start; 
     font-weight: 50;
 `
 
 export const NavLink = styled(Link)`
     color: #fff;
-    font-size: 2rem;
+    font-size: 16pt;
     display: flex;
     align-items: center;
     text-decoration: none;
     cursor: pointer;
-    padding: 0 1rem; 
+    padding: 0 2rem; 
 
     @media screen and (max-width: 400px) {
         position: absolute;
