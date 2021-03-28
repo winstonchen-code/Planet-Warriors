@@ -16,4 +16,12 @@ class User < ApplicationRecord
     UserTask.where(status: "complete").map {|ut| hash[ut.user] += ut.task.point}
     hash.sort_by {|key,value| -value}[0]
   end
+
+  def pending_tasks
+    self.user_tasks.where(status: "incomplete").map {|ut| ut.task}
+  end
+
+  def complete_tasks
+    self.user_tasks.where(status: "complete").map {|ut| ut.task}
+  end
 end

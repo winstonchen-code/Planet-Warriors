@@ -14,7 +14,7 @@ const onLoad = marker => {
   // console.log('marker: ', marker)
 }
 
-const Map = ({tasks}) => {
+const Map = ({tasks, currentUser, setCurrentUser}) => {
 
   const [selectedTask,setSelectedTask] = useState(null)
 
@@ -33,6 +33,15 @@ const Map = ({tasks}) => {
           {tasks.map(task =>  (
             <Marker 
             onClick={() => setSelectedTask(task)}
+            icon={
+              {
+              url: task.name === "plant tree" ? 
+                "./tree.svg"
+                : task.name === "pick up trash" ? 
+                "./trash.svg"
+                : "./bottle-1.svg",
+              scaledSize: new window.google.maps.Size(35,35)
+            }}
             onLoad={onLoad}
             position={{lat: task.latitude, lng: task.longitude}}
             >
@@ -44,7 +53,7 @@ const Map = ({tasks}) => {
             position={{lat: selectedTask.latitude, lng: selectedTask.longitude}}
             onCloseClick={() => setSelectedTask(null)}
             >
-            <div><Task task={selectedTask}/></div>
+            <div><Task task={selectedTask} currentUser={currentUser} setCurrentUser={setCurrentUser}/></div>
               </InfoWindow>
           )}
 

@@ -13,4 +13,5 @@ Rails.application.routes.draw do
 
   get "/tasks", to: "tasks#index"
   post "/newtask", to: "user_tasks#create"
+  post "/checktask", to: "user_tasks#update"
 end
