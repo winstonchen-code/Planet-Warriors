@@ -1,5 +1,6 @@
 
-# Planet Warriors App (WIN the Best Implementation and Potential for Growth of HackOR Competition at Devpost Hackathons)
+# Planet Warriors App 
+(WIN the Best Implementation and Potential for Growth of [HackOR](https://devpost.com/software/planet-warrior) Competition at Devpost Hackathons)
 
 
 
