@@ -3,7 +3,7 @@
 
 ![PlanetWarriorLogo](https://planetwarriors.netlify.app/static/media/planet-warrior-logo.19f43c79.png)
 
-🏆  **WINNER** of [**Best Implementation and Potential for Growth**](https://devpost.com/software/planet-warrior) at the HackOR Hackathon March 26-28, 2021. 
+### **WINNER** 🏆  of [**Best Implementation and Potential for Growth**](https://devpost.com/software/planet-warrior) at HackOR Hackathon Mar.26-28, 2021. 
 
 
 
