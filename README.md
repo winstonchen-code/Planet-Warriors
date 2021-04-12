@@ -1,5 +1,5 @@
 
-# Planet Warriors App 
+# Planet Warriors 
 
 ![PlanetWarriorLogo](https://planetwarriors.netlify.app/static/media/planet-warrior-logo.19f43c79.png)
 
